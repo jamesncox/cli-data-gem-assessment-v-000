@@ -21,25 +21,13 @@ class TopGames::CLI
     
         input = gets.strip.downcase
        
-        if input == "1" 
-          puts TopGames::Game.scrape_summary[0]
+        if input.to_i.between?(0,4) # < 4 && input.to_i > 0
+          puts TopGames::Game.scrape_summary[input.to_i - 1]
           puts game_rankings
           sleep(5)
           info_input
-           
-        elsif input == "2"
-          puts TopGames::Game.scrape_summary[1]
-          puts game_rankings
-          sleep(5)
-          info_input
-           
-        elsif input == '3'
-          puts TopGames::Game.scrape_summary[2]
-          puts game_rankings
-          sleep(5)
-          info_input
-             
-        elsif input == "rankings"
+
+         elsif input == "rankings"
           game_rankings
           info_input
         
